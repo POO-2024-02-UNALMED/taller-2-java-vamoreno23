@@ -1,18 +1,21 @@
 package test;
 
-import java.util.Arrays;  // Importa Arrays para utilizar asList()
-
 public class Asiento {
-    String color;
-    int precio;
-    int registro;
-
-    public void cambiarColor(String NuevoColor) {
-        String[] coloresPermitidos = { "rojo", "verde", "amarillo", "negro", "blanco" };
-
-        // Verifica si el nuevo color está en los colores permitidos
-        if (Arrays.asList(coloresPermitidos).contains(NuevoColor)) {
-            this.color = NuevoColor;
+        String color;
+        Integer precio;
+        Integer registro;
+        public static void main(String[] args) {
+        
         }
+    public void cambiarColor(String nuevoColor) {
+        if (nuevoColor.equals("rojo") || nuevoColor.equals("verde") || 
+            nuevoColor.equals("amarillo") || nuevoColor.equals("negro") || 
+            nuevoColor.equals("blanco")) {
+            this.color = nuevoColor;
+        } 
+        else {
+            System.out.println("Color no permitido. No se cambiara el color.");
+        }
+    
     }
 }

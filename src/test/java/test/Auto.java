@@ -1,30 +1,43 @@
 package test;
 
 public class Auto {
-    String modelo;         
-    int precio;
+    static int cantidadCreados;
+    String modelo;
+    Integer precio;
     Asiento[] asientos;
-    String marca;           
-    Motor motor;            
-    int registro;
-    static String cantidadCreados;
-
+    String marca;
+    Motor motor;
+    Integer registro;
+    public static void main(String[] args) {
+        
+    }
+    
     public int cantidadAsientos() {
-        return asientos.length; // Retorna el tamaño del arreglo de asientos
+        int cantidad = 0;
+        for (Asiento asiento : asientos) {
+            if (asiento != null) {
+                cantidad++;
+            }
+        }
+
+        return cantidad;
     }
 
     public String verificarIntegridad() {
-        // Recorre cada asiento del array asientos
+        if (!this.registro.equals(motor.registro)) {
+            return "Las piezas no son originales";
+        }
+
         for (Asiento asiento : asientos) {
-            // Verifica que todos los registros sean iguales
-            if (asiento.registro != this.registro || asiento.registro != motor.registro) {
+            if (asiento != null && !this.registro.equals(asiento.registro)) {
                 return "Las piezas no son originales";
             }
         }
-        // Verifica que el registro del Auto y Motor sean iguales
-        if (this.registro != motor.registro) {
-            return "Las piezas no son originales";
-        }
+
         return "Auto original";
     }
+
+    public Auto() {
+        cantidadCreados++;  // Incrementa cada vez que se crea un nuevo Auto
+    } 
 }
